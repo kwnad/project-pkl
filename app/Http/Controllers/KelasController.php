@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,10 @@ class KelasController extends Controller
     public function index()
     {
         //
+        $kelas = Kelas::with('jurusan')->get();
+        // dd($kelas);
+        // return $kelas;
+        return view('kelas.index', ['kelas' => $kelas]);
     }
 
     /**
@@ -25,6 +35,8 @@ class KelasController extends Controller
     public function create()
     {
         //
+        $jurusan = Jurusan::all();
+        return view('kelas.create', compact('jurusan'));
     }
 
     /**
@@ -36,6 +48,17 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'id_jurusan' => 'required|unique:kelas',
+            'kelas' => 'required'
+        ]);
+
+        $kelas = new Kelas();
+        $kelas->id_jurusan = $request->id_jurusan;
+        $kelas->kelas = $request->kelas;
+        $kelas->save();
+        return redirect()->route('kelas.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
     /**
@@ -44,9 +67,11 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function show(Kelas $kelas)
+    public function show($id)
     {
         //
+        $kelas = Kelas::findOrFail($id);
+        return view('kelas.show', compact('kelas'));
     }
 
     /**
@@ -55,9 +80,12 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kelas $kelas)
+    public function edit($id)
     {
         //
+        $kelas = Kelas::findOrFail($id);
+        $jurusan = Jurusan::all();
+        return view('kelas.edit', compact('kelas', 'jurusan'));
     }
 
     /**
@@ -67,9 +95,20 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, $id)
     {
         //
+        $validated = $request->validate([
+            'id_jurusan' => 'required',
+            'kelas' => 'required'
+        ]);
+
+        $kelas = Kelas::findOrFail($id);
+        $kelas->id_jurusan = $request->id_jurusan;
+        $kelas->kelas = $request->kelas;
+        $kelas->save();
+        return redirect()->route('kelas.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
     /**
@@ -78,8 +117,12 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kelas $kelas)
+    public function destroy($id)
     {
         //
+        $kelas = Kelas::findOrFail($id);
+        $kelas->delete();
+        return redirect()->route('kelas.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 }

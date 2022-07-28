@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
-
+use App\Http\Controllers\KelasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +27,5 @@ Route::get('/test-admin', function () {
 });
 
 Route::resource('jurusan', JurusanController::class);
+
+Route::resource('kelas', KelasController::class);
