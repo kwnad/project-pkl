@@ -16,9 +16,15 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_siswa');
-            // membuat fk id_kelas yang mengacu kpd field id di table
-            // kelas
             $table->foreign('id_siswa')->references('id')->on('siswas')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('id_kelas');
+
+            $table->foreign('id_kelas')->references('id')->on('kelas')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('id_jurusan');
+            $table->foreign('id_jurusan')->references('id')->on('jurusans')
                 ->onDelete('cascade');
             $table->datetime('jam_masuk');
             $table->timestamps();

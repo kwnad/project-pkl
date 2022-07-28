@@ -23,4 +23,9 @@ class Kelas extends Model
     {
         return $this->belongsTo(Jurusan::class, 'id_jurusan');
     }
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class, 'id_absensi');
+    }
 }
