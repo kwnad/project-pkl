@@ -32,3 +32,7 @@ Route::resource('jurusan', JurusanController::class);
 Route::resource('kelas', KelasController::class);
 
 Route::resource('siswa', SiswaController::class);
+
+Route::get('/test-mimin', function () {
+    return view('layouts.mimin');
+});

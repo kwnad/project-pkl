@@ -3,18 +3,18 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-7">
                 @include('layouts/_flash')
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         Edit Data Jurusan
                     </div>
-                    <div class="card-body">
+                    <div class="card-body bg-light shadow p-4">
                         <form action="{{ route('jurusan.update', $jurusan->id) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="mb-3">
-                                <label class="form-label">Jurusann</label>
+                                <label class="form-label">Jurusan</label>
                                 <input type="text" class="form-control  @error('jurusan') is-invalid @enderror"
                                     name="jurusan" value="{{ $jurusan->jurusan }}">
                                 @error('jurusan')
