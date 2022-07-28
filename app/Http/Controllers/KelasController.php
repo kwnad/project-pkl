@@ -99,7 +99,7 @@ class KelasController extends Controller
     {
         //
         $validated = $request->validate([
-            'id_jurusan' => 'required',
+            'id_jurusan' => 'required|unique:kelas',
             'kelas' => 'required'
         ]);
 

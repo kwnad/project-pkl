@@ -10,12 +10,13 @@
                         Data Siswa
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('siswa.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('siswa.update', $siswa->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="mb-3">
                                 <label class="form-label">NIS</label>
                                 <input type="text" class="form-control  @error('nis') is-invalid @enderror"
-                                    name="nis">
+                                    name="nis" value="{{ $siswa->nis }}">
                                 @error('nis')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -25,7 +26,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
                                 <input type="text" class="form-control  @error('nama') is-invalid @enderror"
-                                    name="nama">
+                                    name="nama" value="{{ $siswa->nama }}">
                                 @error('nama')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -35,9 +36,12 @@
                             <div class="mb-3">
                                 <label class="form-label">Pilih Kelas</label>
                                 <select name="id_kelas" class="form-control @error('id_kelas') is-invalid @enderror"
-                                    id="">
+                                    readonly>
                                     @foreach ($kelas as $data)
-                                        <option value="{{ $data->id }}">{{ $data->kelas }}</option>
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $siswa->id_kelas ? 'selected' : '' }}>
+                                            {{ $data->kelas }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('id_kelas')
@@ -47,11 +51,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Pilih Data Jurusan</label>
+                                <label class="form-label">Pilih Jurusan</label>
                                 <select name="id_jurusan" class="form-control @error('id_jurusan') is-invalid @enderror"
-                                    id="">
+                                    readonly>
                                     @foreach ($jurusan as $data)
-                                        <option value="{{ $data->id }}">{{ $data->jurusan }}</option>
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $siswa->id_jurusan ? 'selected' : '' }}>
+                                            {{ $data->jurusan }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('id_jurusan')
@@ -60,8 +67,6 @@
                                     </span>
                                 @enderror
                             </div>
-                            
-                            
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-primary" type="submit">Save</button>

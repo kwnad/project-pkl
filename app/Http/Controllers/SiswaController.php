@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Kelas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -21,9 +22,10 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::with('kelas')->get();
+        $kelas = Kelas::with('jurusan')->get();
         // dd($siswa);
         // return $siswa;
-        return view('siswa.index', ['siswa' => $siswa]);
+        return view('siswa.index', ['siswa' => $siswa, 'kelas' => $kelas]);
     }
 
     /**
@@ -34,7 +36,8 @@ class SiswaController extends Controller
     public function create()
     {
         $kelas = Kelas::all();
-        return view('siswa.create', compact('kelas'));
+        $jurusan = Jurusan::all();
+        return view('siswa.create', compact('kelas', 'jurusan'));
     }
 
     /**
@@ -48,7 +51,8 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'id_kelas' => 'required|unique:siswa',
+            'id_kelas' => 'required',
+            'id_jurusan' => 'required',
             
         ]);
 
@@ -56,6 +60,7 @@ class SiswaController extends Controller
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
         $siswa->id_kelas = $request->id_kelas;
+        $siswa->id_jurusan = $request->id_jurusan;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -82,7 +87,9 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::findOrFail($id);
-        return view('siswa.edit', compact('siswa'));
+        $kelas = Kelas::all();
+        $jurusan = Jurusan::all();
+        return view('siswa.edit', compact('siswa', 'kelas', 'jurusan'));
     }
 
     /**
@@ -97,14 +104,15 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'id_kelas' => 'required|unique:siswa',
-            
+            'id_kelas' => 'required',
+            'id_jurusan' => 'required',
         ]);
 
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
         $siswa->id_kelas = $request->id_kelas;
+        $siswa->id_jurusan = $request->id_jurusan;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');

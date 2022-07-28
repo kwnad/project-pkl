@@ -27,7 +27,7 @@
                                         <td>{{ $data->nis }}</td>
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->kelas->kelas }}</td>
-                                        <td>{{ $data->kelas->jurusan }}</td>
+                                        <td>{{ $data->jurusan->jurusan }}</td>
                                         
                                         <td>
                                             <form action="{{ route('siswa.destroy', $data->id) }}" method="post">
