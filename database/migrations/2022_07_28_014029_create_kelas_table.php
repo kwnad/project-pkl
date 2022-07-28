@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_absensis', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_absensi');
-            // membuat fk id_kelas yang mengacu kpd field id di table
+            $table->string('kelas');
+            $table->unsignedBigInteger('id_jurusan');
+            // membuat fk id_jurusan yang mengacu kpd field id di table
             // kelas
-            $table->foreign('id_absensi')->references('id')->on('absensis')
+            $table->foreign('id_jurusan')->references('id')->on('jurusans')
                 ->onDelete('cascade');
-            $table->enum('status', ['hadir', 'sakit', 'izin', 'terlambat', 'alpha']);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_absensis');
+        Schema::dropIfExists('kelas');
     }
 };

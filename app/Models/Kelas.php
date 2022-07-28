@@ -14,9 +14,13 @@ class Kelas extends Model
     // aktif
     public $timestamps = true;
 
-    // membuat relasi one to one
     public function siswa()
     {
         return $this->hasMany(Siswa::class, 'id_siswa');
+    }
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'id_jurusan');
     }
 }

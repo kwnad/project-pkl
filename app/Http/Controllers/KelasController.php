@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +14,7 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all();
-        return view('kelas.index', compact('kelas'));
+        //
     }
 
     /**
@@ -29,8 +24,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        $kelas = Kelas::all();
-        return view('kelas.create', compact('kelas'));
+        //
     }
 
     /**
@@ -41,15 +35,7 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([  
-            'kelas' => 'required',
-        ]);
-
-        $kelas = new Kelas();
-        $kelas->kelas = $request->kelas;
-        $kelas->save();
-        return redirect()->route('kelas.index')
-            ->with('success', 'Data berhasil dibuat!');
+        //
     }
 
     /**
@@ -58,10 +44,9 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Kelas $kelas)
     {
-        $kelas = Kelas::findOrFail($id);
-        return view('kelas.show', compact('kelas'));
+        //
     }
 
     /**
@@ -70,10 +55,9 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Kelas $kelas)
     {
-        $kelas = Kelas::findOrFail($id);
-        return view('kelas.edit', compact('kelas'));
+        //
     }
 
     /**
@@ -83,17 +67,9 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kelas $kelas)
     {
-        $validated = $request->validate([  
-            'kelas' => 'required',
-        ]);
-
-        $kelas = Kelas::findorFail($id);
-        $kelas->kelas = $request->kelas;
-        $kelas->save();
-        return redirect()->route('kelas.index')
-            ->with('success', 'Data berhasil dibuat!');
+        //
     }
 
     /**
@@ -102,7 +78,7 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kelas $kelas)
     {
         //
     }

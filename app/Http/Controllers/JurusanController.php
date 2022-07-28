@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class JurusanController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +14,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::all();
-        return view('jurusan.index', compact('jurusan'));
+        //
     }
 
     /**
@@ -29,8 +24,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        $jurusan = Jurusan::all();
-        return view('jurusan.create', compact('jurusan'));
+        //
     }
 
     /**
@@ -41,15 +35,7 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([  
-            'jurusan' => 'required',
-        ]);
-
-        $jurusan = new Jurusan();
-        $jurusan->jurusan = $request->jurusan;
-        $jurusan->save();
-        return redirect()->route('jurusan.index')
-            ->with('success', 'Data berhasil dibuat!');
+        //
     }
 
     /**
@@ -58,10 +44,9 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        return view('jurusan.show', compact('jurusan'));
+        //
     }
 
     /**
@@ -70,10 +55,9 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        return view('jurusan.show', compact('jurusan'));
+        //
     }
 
     /**
@@ -83,17 +67,9 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jurusan $jurusan)
     {
-        $validated = $request->validate([  
-            'jurusan' => 'required',
-        ]);
-
-        $jurusan = Jurusan::findorFail($id);
-        $jurusan->jurusan = $request->jurusan;
-        $jurusan->save();
-        return redirect()->route('jurusan.index')
-            ->with('success', 'Data berhasil dibuat!');
+        //
     }
 
     /**
@@ -102,7 +78,7 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jurusan $jurusan)
     {
         //
     }
