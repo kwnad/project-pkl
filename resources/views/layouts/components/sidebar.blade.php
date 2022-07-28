@@ -47,6 +47,12 @@
                 <p>Data Kelas</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{route('siswa.index')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Data Siswa</p>
+              </a>
+            </li>
             {{-- <li class="nav-item">
               <a href="{{route('nilai.index')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>

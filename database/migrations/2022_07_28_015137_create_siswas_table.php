@@ -22,6 +22,12 @@ return new class extends Migration
             // kelas
             $table->foreign('id_kelas')->references('id')->on('kelas')
                 ->onDelete('cascade');
+
+            $table->unsignedBigInteger('id_jurusan');
+            // membuat fk id_jurusan yang mengacu kpd field id di table
+            // kelas
+            $table->foreign('id_jurusan')->references('id')->on('jurusans')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
