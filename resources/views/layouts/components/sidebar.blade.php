@@ -1,16 +1,87 @@
-<div class="sidebar">
+ {{-- <!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sidebar 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="buatsb/css/style.css">
+  </head>
+  <body>
+		
+		<div class="container d-flex align-items-stretch">
+			<nav id="sidebar" class="img" style="background-image: url(buatsb/images/bg_1.jpg);">
+				<div class="p-4">
+		  		<h1><a href="index.html" class="logo">Travel <span>Travel Agency</span></a></h1>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+	          </li>
+	          <li>
+	              <a href="#"><span class="fa fa-user mr-3"></span> About</a>
+	          </li>
+	          <li>
+              <a href="#"><span class="fa fa-plane mr-3"></span> Destination</a>
+	          </li>
+	          <li>
+              <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
+	          </li>
+	          <li>
+              <a href="#"><span class="fa fa-cogs mr-3"></span> Services</a>
+	          </li>
+	          <li>
+              <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contacts</a>
+	          </li>
+	        </ul>
+
+	        <div class="mb-5">
+						<h3 class="h6 mb-3">Subscribe for newsletter</h3>
+						<form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	<div class="icon"><span class="icon-paper-plane"></span></div>
+	              <input type="text" class="form-control" placeholder="Enter Email Address">
+	            </div>
+	          </form>
+					</div>
+
+	        <div class="footer">
+	        	<p>
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						</p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+      </div>
+		</div>
+
+    <script src="buatsb/js/jquery.min.js"></script>
+    <script src="buatsb/js/popper.js"></script>
+    <script src="buatsb/js/bootstrap.min.js"></script>
+    <script src="buatsb/js/main.js"></script>
+  </body>
+</html> --}}
+
+
+ <div class="sidebar" style="background-color:rgb(219, 216, 216) ;" >
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         <img src="{{asset('assets/dist/img/bakugou.jpg')}}" class="img-circle elevation-2" alt="User Image">
       </div>
-      <div class="info">
-        <a href="#" class="d-block">Nad</a>
+      <div class="info ">
+        <a href="#" class="d-block text-dark">{{ Auth::user()->name }}</a>
       </div>
     </div>
 
     <!-- SidebarSearch Form -->
-    <div class="form-inline">
+    {{-- <div class="form-inline">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -19,39 +90,55 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <!-- Sidebar Menu -->
-    <nav class="mt-2">
+    <nav class="mt-2 ">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
+        <li class="nav-item menu-open"  >
+          <a href="#" class="nav-link active bg-dark">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Data
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
+          <ul class="nav nav-treeview " >
             <li class="nav-item">
-              <a href="{{route('jurusan.index')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <a href="{{route('jurusan.index')}}" class="nav-link text-dark">
+                <i class="nav-icon fas fa-copy"></i>
                 <p>Data Jurusan</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="{{route('kelas.index')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+            <li class="nav-item" >
+              <a href="{{route('kelas.index')}}" class="nav-link text-dark">
+                <i class="nav-icon fas fa-columns"></i>
                 <p>Data Kelas</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('siswa.index')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Data Siswa</p>
+              <a href="{{route('siswa.index')}}" class="nav-link text-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                  <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                </svg>
+              <p class="mr-4">Data Siswa</p>
               </a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 25 16">
+                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+               </svg>Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
             </li>
             {{-- <li class="nav-item">
               <a href="{{route('nilai.index')}}" class="nav-link">

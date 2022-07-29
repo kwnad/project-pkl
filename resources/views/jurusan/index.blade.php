@@ -3,17 +3,17 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-7">
                 @include('layouts/_flash')
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         Data Jurusan
                         <a href="{{ route('jurusan.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-light shadow p-4">
                         <div class="table-responsive">
                             <table class="table align-middle" id="dataTable">
                                 <thead>

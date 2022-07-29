@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-7">
                 @include('layouts/_flash')
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         Tambah Data Jurusan
                     </div>
-                    <div class="card-body">
+                    <div class="card-body bg-light shadow p-4">
                         <form action="{{ route('jurusan.store') }}" method="post">
                             @csrf
                             <div class="mb-3">

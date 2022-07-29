@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
             <div class="card">
-                <div class="card-header">Data Kelas
-                    <a href="{{ route('siswa.create') }}" class="btn btn-sm btn-outline-primary" style="float: right">
+                <div class="card-header bg-dark">Data Kelas
+                    <a href="{{ route('siswa.create') }}" class="btn btn-sm btn-primary" style="float: right">
                         Tambah Data
                     </a>
                 </div>
-                <div class="card-body">
+                <div class="card-body bg-light shadow p-4">
                     <div class="table-responsive">
                         <table class="table" id="dataTable">
                             <thead>
