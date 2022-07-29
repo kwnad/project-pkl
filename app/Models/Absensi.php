@@ -25,4 +25,9 @@ class Absensi extends Model
     {
         return $this->belongsTo(Jurusan::class, 'id_jurusan');
     }
+
+    public function detailabsensi()
+    {
+        return $this->hasMany(DetailAbsensi::class, 'id_detailabsensi');
+    }
 }

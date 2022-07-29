@@ -15,4 +15,19 @@ class DetailAbsensi extends Model
     {
         return $this->belongsTo(Absensi::class, 'id_absensi');
     }
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'id_siswa');
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'id_jurusan');
+    }
 }

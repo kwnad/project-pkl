@@ -27,4 +27,9 @@ class Jurusan extends Model
     {
         return $this->hasMany(Absensi::class, 'id_absensi');
     }
+
+    public function detailabsensi()
+    {
+        return $this->hasMany(DetailAbsensi::class, 'id_detailabsensi');
+    }
 }

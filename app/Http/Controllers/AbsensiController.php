@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,11 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        //
+        $absensi = Absensi::with('siswa')->get();
+        $siswa = Siswa::with('kelas')->get();
+        $kelas = Kelas::with('jurusan')->get();
+        
+        return view('absensi.index', ['absensi' => $absensi, 'siswa' => $siswa, 'kelas' => $kelas]);
     }
 
     /**

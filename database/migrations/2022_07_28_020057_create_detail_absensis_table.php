@@ -20,6 +20,24 @@ return new class extends Migration
             // kelas
             $table->foreign('id_absensi')->references('id')->on('absensis')
                 ->onDelete('cascade');
+
+            $table->unsignedBigInteger('id_siswa');
+            // membuat fk id_kelas yang mengacu kpd field id di table
+            // kelas
+            $table->foreign('id_siswa')->references('id')->on('siswas')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('id_kelas');
+            // membuat fk id_kelas yang mengacu kpd field id di table
+            // kelas
+            $table->foreign('id_kelas')->references('id')->on('kelas')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('id_jurusan');
+            // membuat fk id_kelas yang mengacu kpd field id di table
+            // kelas
+            $table->foreign('id_jurusan')->references('id')->on('jurusans')
+                ->onDelete('cascade');
             $table->enum('status', ['hadir', 'sakit', 'izin', 'terlambat', 'alpha']);
             $table->timestamps();
         });
