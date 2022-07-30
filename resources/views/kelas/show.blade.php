@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-header bg-dark">
+                    <div class="card-header" style="background-color:  rgb(143, 188, 240);">
                         Data Kelas
                     </div>
                     <div class="card-body bg-light shadow p-4">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid gap-2">
-                                <a href="{{ route('kelas.index') }}" class="btn btn-primary">Kembali</a>
+                                <a href="{{ route('kelas.index') }}" class="btn btn-info">Kembali</a>
                             </div>
                         </div>
                         </form>

@@ -1,8 +1,28 @@
-<nav class="main-header navbar navbar-expand  navbar-light shadow p-3 " style="background-color:rgb(255, 255, 255) ;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+
+.main-header{
+      background-size: cover;
+      background-image:url({{asset('assets/dist/img/aaa.jfif')}});
+
+}
+
+</style>
+<body>
+  
+
+<nav class="main-header navbar navbar-expand  navbar-light shadow p-3">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link color-light" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/home')}}" class="nav-link">Home</a>
@@ -134,3 +154,5 @@
     </li> --}}
   </ul>
 </nav>
+</body>
+</html>

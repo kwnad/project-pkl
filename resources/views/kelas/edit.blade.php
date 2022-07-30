@@ -6,7 +6,7 @@
             <div class="col-md-7">
                 @include('layouts/_flash')
                 <div class="card">
-                    <div class="card-header bg-dark">
+                    <div class="card-header " style="background-color:  rgb(143, 188, 240);">
                         Data Kelas
                     </div>
                     <div class="card-body bg-light shadow p-4">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-info" type="submit">Simpan</button>
                                 </div>
                             </div>
                         </form>

@@ -67,6 +67,23 @@
     <script src="buatsb/js/main.js"></script>
   </body>
 </html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .sidebar{
+      background-size: cover;
+      background-image:url({{asset('assets/dist/img/aaa.jfif')}});
+
+}
+    </style>
+</head>
+<body>
+  
 
 
 <div class="sidebar" style="background-color:rgb(184, 192, 194) ;" >
@@ -87,9 +104,9 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
       <li class="nav-item menu-open shadow m-0.5"  >
-        <a href="#" class="nav-link active " style="background-color:rgb(163, 163, 241) ;">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
+        <a href="#" class="nav-link ">
+          <i class="fas fa-angle-left right"></i>
+          <p class="text-dark ">
             Data
             <i class="right fas fa-angle-left"></i>
           </p>
@@ -756,3 +773,5 @@
   </nav>
   <!-- /.sidebar-menu -->
 </div>
+</body>
+</html>
