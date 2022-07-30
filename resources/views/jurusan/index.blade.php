@@ -5,15 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 @include('layouts/_flash')
-                <div class="card">
-                    <div class="card-header bg-dark">
+                <div class="card elevation-3 " >
+                    <div class="card-header " style="background-color: rgb(45, 230, 100)">
                         Data Jurusan
                         <a href="{{ route('jurusan.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
 
-                    <div class="card-body bg-light shadow p-4">
+                    <div class="card-body bg-light shadow p-4" >
                         <div class="table-responsive">
                             <table class="table align-middle" id="dataTable">
                                 <thead>
