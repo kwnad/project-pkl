@@ -10,14 +10,16 @@
 
 .main-header{
       background-size: cover;
+      
       background-image:url({{asset('assets/dist/img/istockphoto-1174989484-170667a.jpg')}});
-
+      
 }
 
 .aan:hover{
   transition:1s;
   transform:scale(1.2);
   z-index: 2;
+  
 }
 
 </style>
@@ -26,14 +28,13 @@
 
 <nav class="main-header navbar navbar-expand  navbar-light shadow p-3">
   <!-- Left navbar links -->
-  <ul class="navbar-nav">
+    <ul class="navbar-nav">
     <li class="aan nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link shadow m-2" style="background-image:url({{asset('assets/dist/img/istockphoto-1174989484-170667a.jpg')}})" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/home')}}" class="nav-link text-light ">Home</a>
+      <a href="{{url('/home')}}" class="nav-link text-light">Home</a>
     </li>
-    
   </ul>
   
   <!-- Right navbar links -->
