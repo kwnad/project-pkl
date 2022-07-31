@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\AbsensiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,14 @@ Route::resource('kelas', KelasController::class);
 
 Route::resource('siswa', SiswaController::class);
 
+Route::resource('absensi', AbsensiController::class);
+
 Route::get('/test-mimin', function () {
     return view('layouts.mimin');
 });
 
+// Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+//     Route::get('/', function () {
+//         return view('admin.index');
+//     });
+// });

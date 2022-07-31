@@ -49,6 +49,10 @@
                         <li>
                             <a href="{{route('siswa.index')}}">Siswa</a>
                         </li>
+
+                        <li>
+                            <a href="{{route('absensi.index')}}">Siswa</a>
+                        </li>
                         
                         <li>
                             <a href="component-buttons.html">Buttons</a>

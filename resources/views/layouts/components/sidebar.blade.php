@@ -134,6 +134,12 @@
             <p class="mr-4">Data Siswa</p>
             </a>
           </li> 
+          <li class="nav-item" >
+            <a href="{{route('absensi.index')}}" class="nav-link text-dark">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>Data Absensi</p>
+            </a>
+          </li>
           
           {{-- <li class="nav-item">
             <a href="{{route('nilai.index')}}" class="nav-link">

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absensi;
+use App\Models\Jurusan;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -32,7 +35,10 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        //
+        $siswa = Siswa::all();
+        $kelas = Kelas::all();
+        $jurusan = Jurusan::all();
+        return view('absensi.create', compact('siswa', 'kelas', 'jurusan'));
     }
 
     /**
@@ -43,7 +49,23 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'id_siswa' => 'required',
+            'id_siswa' => 'required',
+            'id_kelas' => 'required',
+            'id_jurusan' => 'required',
+            'jam_masuk' => 'required'
+        ]);
+
+        $absensi = new Absensi();
+        $absensi->id_siswa = $request->id_siswa;
+        $absensi->id_siswa = $request->id_siswa;
+        $absensi->id_kelas = $request->id_kelas;
+        $absensi->id_jurusan = $request->id_jurusan;
+        $absensi->jam_masuk = $request->jam_masuk;
+        $absensi->save();
+        return redirect()->route('absensi.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
     /**
@@ -52,9 +74,10 @@ class AbsensiController extends Controller
      * @param  \App\Models\Absensi  $absensi
      * @return \Illuminate\Http\Response
      */
-    public function show(Absensi $absensi)
+    public function show($id)
     {
-        //
+        $absensi = Absensi::findOrFail($id);
+        return view('absensi.show', compact('absensi'));
     }
 
     /**
@@ -63,9 +86,13 @@ class AbsensiController extends Controller
      * @param  \App\Models\Absensi  $absensi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Absensi $absensi)
+    public function edit($id)
     {
-        //
+        $absensi = Absensi::findOrFail($id);
+        $siswa = Siswa::all();
+        $kelas = Kelas::all();
+        $jurusan = Jurusan::all();
+        return view('absensi.edit', compact('absensi', 'siswa', 'kelas', 'jurusan'));
     }
 
     /**
@@ -75,9 +102,25 @@ class AbsensiController extends Controller
      * @param  \App\Models\Absensi  $absensi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Absensi $absensi)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'id_siswa' => 'required',
+            'id_siswa' => 'required',
+            'id_kelas' => 'required',
+            'id_jurusan' => 'required',
+            'jam_masuk' => 'required'
+        ]);
+
+        $absensi = Absensi::findOrFail($id);
+        $absensi->id_siswa = $request->id_siswa;
+        $absensi->id_siswa = $request->id_siswa;
+        $absensi->id_kelas = $request->id_kelas;
+        $absensi->id_jurusan = $request->id_jurusan;
+        $absensi->jam_masuk = $request->jam_masuk;
+        $absensi->save();
+        return redirect()->route('absensi.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 
     /**
@@ -86,8 +129,11 @@ class AbsensiController extends Controller
      * @param  \App\Models\Absensi  $absensi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Absensi $absensi)
+    public function destroy($id)
     {
-        //
+        $absensi = Absensi::findOrFail($id);
+        $absensi->delete();
+        return redirect()->route('absensi.index')
+            ->with('success', 'Data berhasil dibuat!');
     }
 }
