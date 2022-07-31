@@ -6,9 +6,10 @@
   <title>Web Absensi</title>
   <style>
     .brand-link{
-      opacity:0.6;
+      opacity: 0.9;
       background-size: cover;
-      background-image:url({{asset('assets/dist/img/logoabsen.png')}});
+      padding-top:300px ;
+      background-image:url({{asset('assets/dist/img/logo-custom.png')}});
 
     }
   </style>
@@ -50,12 +51,14 @@
   
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-     <a  class="brand-link">
+    
+     <a  class="brand-link bg-light">
+       
       <br>
       <br>
       <span class="brand-text font-weight-light" hidden>Absensi</span>
     </a>
-    
+
 
     <!-- Sidebar -->
     @include('layouts.components.sidebar')

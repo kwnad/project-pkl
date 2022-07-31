@@ -78,8 +78,25 @@
     .sidebar{
       background-size: cover;
       background-image:url({{asset('assets/dist/img/aaa.jfif')}});
-
 }
+    .user-panel{
+      border-radius: 90px; 
+      background-repeat:repeat;
+      padding:20px; 
+      width:120px;
+      height:120px;
+      margin-left:25%;
+      padding-top:60px;
+      margin-bottom:60px;
+      background-size:cover;
+      transition:1s;
+      opacity:0.8;
+      background-image:url({{asset('assets/dist/img/logouser.png')}});
+    }
+    .user-panel:hover{
+      transform:scale(1.2);
+      z-index: 2;
+    }
     </style>
 </head>
 <body>
@@ -89,14 +106,17 @@
 <div class="sidebar" style="background-color:rgb(184, 192, 194) ;" >
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
-      <img src="{{asset('assets/dist/img/bakugou.jpg')}}" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info ">
-      <a href="#" class="d-block text-dark">{{ Auth::user()->name }}</a>
-    </div>
+    {{-- <div class="image">
+      {{-- <img src="" class="img-circle elevation-2" alt="User Image"> 
+      
+    </div> --}}
+    {{-- <img src="{{asset('assets/dist/img/bakugou.jpg')}}" class="rounded mx-auto d-block img-circle elevation-2 " style="width:80; height=:70px;" alt="..."> --}}
+   
   </div>
-
+ <div class="info text-sm-center">
+      <a href="#" class="d-block text-dark">{{ Auth::user()->name }}</a>
+  </div>
+   
  
   <!-- Sidebar Menu -->
   <nav class="mt-2 ">
