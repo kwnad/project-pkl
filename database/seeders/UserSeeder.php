@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,16 +15,32 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Membuat Role Admin
-        // $adminRole = new Role;
-        // $adminRole->name = "admin";
-        // $adminRole->display_name = "Admin";
-        // $adminRole->save();
+        // membuat Role
+        $adminRole = Role::create([
+            'name' => 'admin',
+            'display_name' => 'User Administrator', // optional
+        ]);
 
-        $user = new User();
-        $user->name = "admin";
-        $user->email = "admin@gmail.com";
-        $user->password = bcrypt("rahasia");
-        $user->save();
+        $memberRole = Role::create([
+            'name' => 'member',
+            'display_name' => 'Project Member', // optional
+
+        ]);
+
+        // membuat sample user
+        $adminUser = new User();
+        $adminUser->name = 'Admin Project';
+        $adminUser->email = 'admin@gmail.com'; // optional
+        $adminUser->password = bcrypt('rahasia');
+        $adminUser->save();
+        $adminUser->attachRole($adminRole);
+
+        $memberUser = new User();
+        $memberUser->name = 'Member Project';
+        $memberUser->email = 'member@gmail.com'; // optional
+        $memberUser->password = bcrypt('rahasia');
+        $memberUser->save();
+        $memberUser->attachRole($memberRole);
+
     }
 }
