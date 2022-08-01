@@ -58,8 +58,4 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
     Route::get('/', function () {
         return view('home');
     });
-
-    Route::get('profil', function () {
-        return view('member.index');
-    });
 });
