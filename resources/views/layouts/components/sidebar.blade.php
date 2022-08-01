@@ -170,16 +170,16 @@
         </ul>
         @endrole
 
-        {{-- @role('member')
+        @role('member')
         <ul class="nav nav-treeview " >
           <li class="nav-item">
-            <a href="{{route('siswa.index')}}" class="nav-link text-dark">
+            <a href="{{url('/member/profil')}}" class="nav-link text-dark">
               <i class="nav-icon fas fa-copy"></i>
-              <p>Data Siswa</p>
+              <p>Profil Siswa</p>
             </a>
           </li>
         </ul>
-        @endrole --}}
+        @endrole
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark"  href="{{ route('logout') }}" onclick="event.preventDefault();
