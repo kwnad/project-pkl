@@ -44,6 +44,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::get('/', function () {
         return view('admin.index');
     });
+
+    Route::resource('jurusan', JurusanController::class);
+
+    Route::resource('kelas', KelasController::class);
+
+    Route::resource('siswa', SiswaController::class);
+
+    Route::resource('absensi', AbsensiController::class);
 });
 
 Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], function () {
