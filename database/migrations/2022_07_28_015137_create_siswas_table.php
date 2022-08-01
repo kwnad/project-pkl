@@ -17,11 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nis')->unique();
             $table->string('nama');
-            $table->unsignedBigInteger('id_kelas');
-            // membuat fk id_kelas yang mengacu kpd field id di table
-            // kelas
-            $table->foreign('id_kelas')->references('id')->on('kelas')
-                ->onDelete('cascade');
+            $table->string('kelas');
 
             $table->unsignedBigInteger('id_jurusan');
             // membuat fk id_jurusan yang mengacu kpd field id di table

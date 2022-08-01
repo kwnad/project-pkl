@@ -40,8 +40,18 @@ Route::get('/test-mimin', function () {
     return view('layouts.mimin');
 });
 
-// Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
-//     Route::get('/', function () {
-//         return view('admin.index');
-//     });
-// });
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+});
+
+Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], function () {
+    Route::get('/', function () {
+        return view('home');
+    });
+
+    Route::get('profil', function () {
+        return view('member.index');
+    });
+});

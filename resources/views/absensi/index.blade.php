@@ -40,7 +40,8 @@
                                 <th>Nama</th>
                                 <th>Kelas</th>
                                 <th>Jurusan</th>
-                                <th>Jam Masuk</th>
+                                <th>Tanggal Masuk</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </thead>
                             <tbody>
@@ -53,6 +54,7 @@
                                         <td>{{ $data->kelas->kelas }}</td>
                                         <td>{{ $data->jurusan->jurusan }}</td>
                                         <td>{{ $data->jam_masuk }}</td>
+                                        <td>{{ $data->status }}</td>
                                         
                                         <td>
                                             <form action="{{ route('absensi.destroy', $data->id) }}" method="post">

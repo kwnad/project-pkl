@@ -51,7 +51,7 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'id_kelas' => 'required',
+            'kelas' => 'required',
             'id_jurusan' => 'required',
             
         ]);
@@ -59,7 +59,7 @@ class SiswaController extends Controller
         $siswa = new Siswa();
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
-        $siswa->id_kelas = $request->id_kelas;
+        $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
         $siswa->save();
         return redirect()->route('siswa.index')
@@ -104,14 +104,14 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nis' => 'required',
             'nama' => 'required',
-            'id_kelas' => 'required',
+            'kelas' => 'required',
             'id_jurusan' => 'required',
         ]);
 
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
-        $siswa->id_kelas = $request->id_kelas;
+        $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
         $siswa->save();
         return redirect()->route('siswa.index')

@@ -18,15 +18,13 @@ return new class extends Migration
             $table->unsignedBigInteger('id_siswa');
             $table->foreign('id_siswa')->references('id')->on('siswas')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('id_kelas');
-
-            $table->foreign('id_kelas')->references('id')->on('kelas')
-                ->onDelete('cascade');
+            $table->string('kelas');
 
             $table->unsignedBigInteger('id_jurusan');
             $table->foreign('id_jurusan')->references('id')->on('jurusans')
                 ->onDelete('cascade');
             $table->date('jam_masuk');
+            $table->enum('status', ['Hadir', 'Sakit', 'Izin', 'Terlambat', 'Alpha']);
             $table->timestamps();
         });
     }

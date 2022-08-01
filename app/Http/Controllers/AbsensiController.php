@@ -52,17 +52,19 @@ class AbsensiController extends Controller
         $validated = $request->validate([
             'id_siswa' => 'required',
             'id_siswa' => 'required',
-            'id_kelas' => 'required',
+            'kelas' => 'required',
             'id_jurusan' => 'required',
-            'jam_masuk' => 'required'
+            'jam_masuk' => 'required',
+            'status' => 'required'
         ]);
 
         $absensi = new Absensi();
         $absensi->id_siswa = $request->id_siswa;
         $absensi->id_siswa = $request->id_siswa;
-        $absensi->id_kelas = $request->id_kelas;
+        $absensi->kelas = $request->kelas;
         $absensi->id_jurusan = $request->id_jurusan;
         $absensi->jam_masuk = $request->jam_masuk;
+        $absensi->status = $request->status;
         $absensi->save();
         return redirect()->route('absensi.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -107,7 +109,7 @@ class AbsensiController extends Controller
         $validated = $request->validate([
             'id_siswa' => 'required',
             'id_siswa' => 'required',
-            'id_kelas' => 'required',
+            'kelas' => 'required',
             'id_jurusan' => 'required',
             'jam_masuk' => 'required'
         ]);
@@ -115,7 +117,7 @@ class AbsensiController extends Controller
         $absensi = Absensi::findOrFail($id);
         $absensi->id_siswa = $request->id_siswa;
         $absensi->id_siswa = $request->id_siswa;
-        $absensi->id_kelas = $request->id_kelas;
+        $absensi->kelas = $request->kelas;
         $absensi->id_jurusan = $request->id_jurusan;
         $absensi->jam_masuk = $request->jam_masuk;
         $absensi->save();

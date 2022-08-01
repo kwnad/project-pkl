@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Absensi extends Model
 {
     use HasFactory;
-    public $fillable = ['id_siswa', 'jam_masuk'];
+    public $fillable = ['id_siswa', 'kelas', 'id_jurusan', 'jam_masuk', 'status'];
     public $timestamps = true;
 
     public function siswa()
@@ -16,18 +16,8 @@ class Absensi extends Model
         return $this->belongsTo(Siswa::class, 'id_siswa');
     }
 
-    public function kelas()
-    {
-        return $this->belongsTo(Kelas::class, 'id_kelas');
-    }
-
     public function jurusan()
     {
         return $this->belongsTo(Jurusan::class, 'id_jurusan');
-    }
-
-    public function detailabsensi()
-    {
-        return $this->hasMany(DetailAbsensi::class, 'id_detailabsensi');
     }
 }

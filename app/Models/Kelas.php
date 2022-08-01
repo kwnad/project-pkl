@@ -13,24 +13,4 @@ class Kelas extends Model
     // membuat fitur created_at(kapan data dibuat) & updated_at (kapan data diedit)
     // aktif
     public $timestamps = true;
-
-    public function siswa()
-    {
-        return $this->hasMany(Siswa::class, 'id_siswa');
-    }
-
-    public function jurusan()
-    {
-        return $this->belongsTo(Jurusan::class, 'id_jurusan');
-    }
-
-    public function absensi()
-    {
-        return $this->hasMany(Absensi::class, 'id_absensi');
-    }
-
-    public function detailabsensi()
-    {
-        return $this->hasMany(DetailAbsensi::class, 'id_detailabsensi');
-    }
 }

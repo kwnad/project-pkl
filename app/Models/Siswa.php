@@ -8,13 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     use HasFactory;
-    public $fillable = ['nis', 'nama', 'id_kelas', 'id_jurusan'];
+    public $fillable = ['nis', 'nama', 'kelas', 'id_jurusan'];
     public $timestamps = true;
 
-    public function kelas()
-    {
-        return $this->belongsTo(Kelas::class, 'id_kelas');
-    }
 
     public function jurusan()
     {
@@ -24,10 +20,5 @@ class Siswa extends Model
     public function absensi()
     {
         return $this->hasMany(Absensi::class, 'id_absensi');
-    }
-
-    public function detailabsensi()
-    {
-        return $this->hasMany(DetailAbsensi::class, 'id_detailabsensi');
     }
 }

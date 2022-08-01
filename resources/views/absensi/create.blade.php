@@ -78,6 +78,24 @@
                                     </span>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    name="status" value="Hadir">Hadir
+                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    name="status" value="Izin">Izin
+                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    name="status" value="Sakit">Sakit
+                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    name="status" value="Alpha">Alpha
+                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    name="status" value="Terlambat">Terlambat
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
