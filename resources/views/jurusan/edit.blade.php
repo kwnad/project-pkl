@@ -32,7 +32,7 @@
                             @csrf
                             @method('put')
                             <div class="mb-3">
-                                <label class="form-label">Jurusan</label>
+                                <label class="form-label">Jurusann</label>
                                 <input type="text" class="form-control  @error('jurusan') is-invalid @enderror"
                                     name="jurusan" value="{{ $jurusan->jurusan }}">
                                 @error('jurusan')
