@@ -161,6 +161,12 @@
               <p>Data Absensi</p>
             </a>
           </li>
+          <li class="nav-item" >
+            <a href="{{url('/admin/rekap')}}" class="nav-link text-dark">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>Rekap Absensi</p>
+            </a>
+          </li>
         </ul>
         @endrole
 

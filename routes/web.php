@@ -52,6 +52,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::resource('siswa', SiswaController::class);
 
     Route::resource('absensi', AbsensiController::class);
+
+    Route::get('rekap', function () {
+        return view('rekapabsensi.index');
+    });
 });
 
 Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], function () {
