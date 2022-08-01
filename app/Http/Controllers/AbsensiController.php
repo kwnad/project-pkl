@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Absensi;
 use App\Models\Jurusan;
-use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -22,10 +21,9 @@ class AbsensiController extends Controller
     public function index()
     {
         $absensi = Absensi::with('siswa')->get();
-        $siswa = Siswa::with('kelas')->get();
-        $kelas = Kelas::with('jurusan')->get();
+        $siswa = Siswa::with('jurusan')->get();
         
-        return view('absensi.index', ['absensi' => $absensi, 'siswa' => $siswa, 'kelas' => $kelas]);
+        return view('absensi.index', ['absensi' => $absensi, 'siswa' => $siswa]);
     }
 
     /**
@@ -36,9 +34,8 @@ class AbsensiController extends Controller
     public function create()
     {
         $siswa = Siswa::all();
-        $kelas = Kelas::all();
         $jurusan = Jurusan::all();
-        return view('absensi.create', compact('siswa', 'kelas', 'jurusan'));
+        return view('absensi.create', compact('siswa', 'jurusan'));
     }
 
     /**
@@ -92,9 +89,8 @@ class AbsensiController extends Controller
     {
         $absensi = Absensi::findOrFail($id);
         $siswa = Siswa::all();
-        $kelas = Kelas::all();
         $jurusan = Jurusan::all();
-        return view('absensi.edit', compact('absensi', 'siswa', 'kelas', 'jurusan'));
+        return view('absensi.edit', compact('absensi', 'siswa', 'jurusan'));
     }
 
     /**

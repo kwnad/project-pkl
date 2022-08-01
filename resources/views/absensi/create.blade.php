@@ -41,14 +41,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Pilih Kelas</label>
-                                <select name="id_kelas" class="form-control @error('id_kelas') is-invalid @enderror"
-                                    id="">
-                                    @foreach ($kelas as $data)
-                                        <option value="{{ $data->id }}">{{ $data->kelas }}</option>
-                                    @endforeach
+                                <label class="form-label">Kelas</label>
+                                <select name="kelas" class="form-control @error('kelas') is-invalid @enderror" id="">
+                                    <option value="">Pilih Kelas</option>
+                                    <option value="X">X</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XII">XII</option>
                                 </select>
-                                @error('id_kelas')
+                                @error('kelas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

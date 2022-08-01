@@ -19,7 +19,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Kelas</label>
-                            <input type="text" class="form-control" name="kelas" value="{{ $siswa->kelas->kelas }}"
+                            <input type="text" class="form-control" name="kelas" value="{{ $siswa->kelas }}"
                                 readonly>
                         </div>
                         <div class="mb-3">

@@ -89,7 +89,7 @@
       padding-top:60px;
       margin-bottom:60px;
       background-size:cover;
-      transition:1s;
+      transition:0.3s;
       opacity:0.8;
       background-image:url({{asset('assets/dist/img/logouser.png')}});
     }
@@ -161,6 +161,7 @@
               <p>Data Absensi</p>
             </a>
           </li>
+        </ul>
         @endrole
 
         {{-- @role('member')

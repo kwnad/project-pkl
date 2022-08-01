@@ -51,7 +51,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->siswa->nis }}</td>
                                         <td>{{ $data->siswa->nama }}</td>
-                                        <td>{{ $data->kelas->kelas }}</td>
+                                        <td>{{ $data->kelas }}</td>
                                         <td>{{ $data->jurusan->jurusan }}</td>
                                         <td>{{ $data->jam_masuk }}</td>
                                         <td>{{ $data->status }}</td>

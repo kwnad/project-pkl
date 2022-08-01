@@ -49,7 +49,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->nis }}</td>
                                         <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->kelas->kelas }}</td>
+                                        <td>{{ $data->kelas }}</td>
                                         <td>{{ $data->jurusan->jurusan }}</td>
                                         
                                         <td>

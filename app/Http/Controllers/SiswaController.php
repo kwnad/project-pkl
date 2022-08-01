@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
-use App\Models\Kelas;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
@@ -21,11 +20,10 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Siswa::with('kelas')->get();
-        $kelas = Kelas::with('jurusan')->get();
+        $siswa = Siswa::with('jurusan')->get();
         // dd($siswa);
         // return $siswa;
-        return view('siswa.index', ['siswa' => $siswa, 'kelas' => $kelas]);
+        return view('siswa.index', ['siswa' => $siswa]);
     }
 
     /**
@@ -35,9 +33,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $kelas = Kelas::all();
         $jurusan = Jurusan::all();
-        return view('siswa.create', compact('kelas', 'jurusan'));
+        return view('siswa.create', compact('jurusan'));
     }
 
     /**
@@ -49,7 +46,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nis' => 'required',
+            'nis' => 'required|unique:siswas',
             'nama' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
@@ -87,9 +84,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::findOrFail($id);
-        $kelas = Kelas::all();
         $jurusan = Jurusan::all();
-        return view('siswa.edit', compact('siswa', 'kelas', 'jurusan'));
+        return view('siswa.edit', compact('siswa', 'jurusan'));
     }
 
     /**
@@ -102,7 +98,7 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nis' => 'required',
+            'nis' => 'required|unique:kelas',
             'nama' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
