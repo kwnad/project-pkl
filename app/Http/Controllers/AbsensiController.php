@@ -107,7 +107,8 @@ class AbsensiController extends Controller
             'id_siswa' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
-            'jam_masuk' => 'required'
+            'jam_masuk' => 'required',
+            'status' => 'required'
         ]);
 
         $absensi = Absensi::findOrFail($id);
@@ -116,6 +117,7 @@ class AbsensiController extends Controller
         $absensi->kelas = $request->kelas;
         $absensi->id_jurusan = $request->id_jurusan;
         $absensi->jam_masuk = $request->jam_masuk;
+        $absensi->status = $request->status;
         $absensi->save();
         return redirect()->route('absensi.index')
             ->with('success', 'Data berhasil dibuat!');
