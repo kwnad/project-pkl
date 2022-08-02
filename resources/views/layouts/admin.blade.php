@@ -9,7 +9,7 @@
       opacity: 0.9;
       background-size: cover;
       padding-top:300px ;
-      background-image:url({{asset('assets/dist/img/logo-custom.png')}});
+      background-image:url({{asset('assets/dist/img/logoabsen.png')}});
 
     }
   </style>
@@ -86,19 +86,22 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+     
+      <section class="content">
       @yield('content')
     </section>
+     
+    
     <!-- /.content -->
-  </div>
+  </div> 
   <!-- /.content-wrapper -->
-  {{-- <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+  <footer class="main-footer bg-secondary">
+    <strong>Copyright &copy; 2022</strong>
+    <strong>With Love</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+     
     </div>
-  </footer> --}}
+  </footer>
 
   <!-- Control Sidebar -->
   {{-- <aside class="control-sidebar control-sidebar-dark">

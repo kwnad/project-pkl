@@ -77,7 +77,8 @@
   <style>
     .sidebar{
       background-size: cover;
-      background-image:url({{asset('assets/dist/img/aaa.jfif')}});
+      
+      background-image:url({{asset('assets/dist/img/plane-3840x2160-minimalism-colors-4k-18613.jpg')}});
 }
     .user-panel{
       border-radius: 90px; 
@@ -114,7 +115,7 @@
    
   </div>
  <div class="info text-sm-center">
-      <a href="#" class="d-block text-dark">{{ Auth::user()->name }}</a>
+      <a href="#" class="d-block text-light">{{ Auth::user()->name }}</a>
   </div>
    
  
@@ -126,7 +127,7 @@
       <li class="nav-item menu-open shadow m-0.5"  >
         <a href="#" class="nav-link ">
           <i class="fas fa-angle-left right"></i>
-          <p class="text-dark ">
+          <p class="text-light ">
             Data
             <i class="right fas fa-angle-left"></i>
           </p>
@@ -134,19 +135,19 @@
         @role('admin')
         <ul class="nav nav-treeview " >
           <li class="nav-item">
-            <a href="{{route('jurusan.index')}}" class="nav-link text-dark">
+            <a href="{{route('jurusan.index')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-copy"></i>
               <p>Data Jurusan</p>
             </a>
           </li>
           <li class="nav-item" >
-            <a href="{{route('kelas.index')}}" class="nav-link text-dark">
+            <a href="{{route('kelas.index')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-columns"></i>
               <p>Data Kelas</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('siswa.index')}}" class="nav-link text-dark">
+            <a href="{{route('siswa.index')}}" class="nav-link text-light">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                 <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
@@ -156,18 +157,18 @@
             </a>
           </li> 
           <li class="nav-item" >
-            <a href="{{route('absensi.index')}}" class="nav-link text-dark">
+            <a href="{{route('absensi.index')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-columns"></i>
               <p>Data Absensi</p>
             </a>
           </li>
         </ul>
-        @endrole
+        @endrole 
 
         {{-- @role('member')
         <ul class="nav nav-treeview " >
           <li class="nav-item">
-            <a href="{{route('siswa.index')}}" class="nav-link text-dark">
+            <a href="{{route('siswa.index')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-copy"></i>
               <p>Data Siswa</p>
             </a>
@@ -176,7 +177,7 @@
         @endrole --}}
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark"  href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="nav-link text-light"  href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();" role="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 25 16">
             <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>

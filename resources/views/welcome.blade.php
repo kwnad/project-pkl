@@ -29,20 +29,36 @@
         </style>
     </head>
     <body id="page-top">
-        
+        <div>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                    <h4>
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500"><h4>Home</h4></a></h4>
+                    @else
+                    <h4>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500"><h4>Login</h4></a>
+                    
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500"><h4>Register</h4></a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+        </div>
                  <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <img class="masthead-avatar mb-5" src="welcome/assets/img/avataaars.svg" alt="..." />
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Selamat Datang Di Website Absensi Smk Assalaam Bandung</h1>
+                <h3>Selamat Datang Di Website Absensi Smk Assalaam Bandung</h3>
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 
-                <h1 class="masthead-heading text-uppercase mb-0">Silahkan Login Sebagai Siswa/I Smk Assalaam Terlebih Dahulu Untuk Memasuki Website ini</h1>
+                <h3>Silahkan Login Sebagai Siswa/I Smk Assalaam Terlebih Dahulu Untuk Memasuki Website ini</h3>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -56,23 +72,7 @@
         <!-- Portfolio Section-->
         
         <!-- About Section-->
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 bg-primary">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                    <h4>
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500">Home</a></h4>
-                    @else
-                    <h4>
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500">Login</a>
-                    
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
+        
         <!-- Contact Section-->
        
         <!-- Footer-->
