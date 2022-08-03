@@ -21,18 +21,11 @@
   
 }
 
-.nav-link shadow {
+.pai {
       border-radius:20px; 
       background-repeat:repeat;
-      padding: 5px; 
-      width:20px;
-      height:20px;
-      margin-left:25%;
-      padding-top:30px;
-      margin-bottom:30px;
-      transition:0.3s;
-      opacity:0.8;
-      
+      width:45px;
+      height:50px;   
 }
 
 </style>
