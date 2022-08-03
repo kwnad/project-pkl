@@ -11,7 +11,7 @@
 .main-header{
       background-size: cover;
       
-      background-image:url({{asset('assets/dist/img/istockphoto-1174989484-170667a.jpg')}});
+      background-image:url({{asset('assets/dist/img/plane-3840x2160-minimalism-colors-4k-18613.jpg')}});
       
 }
 
@@ -22,6 +22,21 @@
   
 }
 
+.nav-link shadow {
+      border-radius:20px; 
+      background-repeat:repeat;
+      padding: 5px; 
+      width:20px;
+      height:20px;
+      margin-left:25%;
+      padding-top:30px;
+      margin-bottom:30px;
+      background-size:cover;
+      transition:0.3s;
+      opacity:0.8;
+      background-image:url({{asset('assets/dist/img/istockphoto-1174989484-170667a.jpg')}});
+}
+
 </style>
 <body>
   
@@ -30,7 +45,7 @@
   <!-- Left navbar links -->
     <ul class="navbar-nav">
     <li class="aan nav-item">
-      <a class="nav-link shadow m-2" style="background-image:url({{asset('assets/dist/img/istockphoto-1174989484-170667a.jpg')}})" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link shadow m-2" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/home')}}" class="nav-link text-light">Home</a>

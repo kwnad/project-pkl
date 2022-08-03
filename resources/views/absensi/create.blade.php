@@ -80,16 +80,22 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
-                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                <br>
+                                <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
                                     name="status" value="Hadir">Hadir
-                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    <br>
+                                <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
                                     name="status" value="Izin">Izin
-                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    <br>
+                                <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
                                     name="status" value="Sakit">Sakit
-                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    <br>
+                                <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
                                     name="status" value="Alpha">Alpha
-                                <input type="radio" class="form-control  @error('status') is-invalid @enderror"
+                                    <br>
+                                <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
                                     name="status" value="Terlambat">Terlambat
+                                    <br>
                                 @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

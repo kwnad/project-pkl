@@ -67,3 +67,11 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
         return view('profil.index');
     });
 });
+
+Route::get('/testt', function () {
+    return view('layouts.admin2');
+});
+
+Route::get('/adm', function () {
+    return view('layouts.adm');
+});
