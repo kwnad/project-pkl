@@ -5,6 +5,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\RekapAbsensiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,9 +54,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
     Route::resource('absensi', AbsensiController::class);
 
-    Route::get('rekap', function () {
-        return view('rekapabsensi.index');
-    });
+    Route::resource('rekap', RekapAbsensiController::class);
+
+    // Route::get('rekap', function () {
+    //     return view('rekapabsensi.index');
+    // });
 });
 
 Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], function () {

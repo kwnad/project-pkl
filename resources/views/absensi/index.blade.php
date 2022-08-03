@@ -27,9 +27,9 @@
         </a>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card elevation-5 shadow p-2" style="background-color:rgb(221, 221, 221)) ;">
-                <div class="card-header pb-3" style="background-color: rgb(143, 188, 240)">Data Siswa
+                <div class="card-header pb-3" style="background-color: rgb(143, 188, 240)">Data Absensi
                 </div>
                 <div class="card-body bg-light shadow p-4">
                     <div class="table-responsive">

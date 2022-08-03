@@ -21,4 +21,9 @@ class Siswa extends Model
     {
         return $this->hasMany(Absensi::class, 'id_absensi');
     }
+
+    public function rekapabsensi()
+    {
+        return $this->hasMany(RekapAbsensi::class, 'id_rekapabsensi');
+    }
 }

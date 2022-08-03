@@ -454,8 +454,8 @@
 
 
         </div> <!-- .content --> --}}
-        <section class="content">
-            @yield('content')
+        <section class="apaaa">
+            @yield('apaaa')
         </section>
     </div><!-- /#right-panel -->
 
