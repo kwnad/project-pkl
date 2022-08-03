@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Web Absensi</title>
   <style>
-    .brand-link{
+    /* .brand-link{
       opacity: 0.9;
       background-size: cover;
       padding-top:300px ;
       background-image:url({{asset('assets/dist/img/logoabsen.png')}});
 
-    }
+    } */
   </style>
 
   <!-- Google Font: Source Sans Pro -->
@@ -52,12 +52,12 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     
-     <a  class="brand-link bg-light">
+     {{-- <a  class="brand-link bg-light">
        
       <br>
       <br>
       <span class="brand-text font-weight-light" hidden>Absensi</span>
-    </a>
+    </a> --}}
 
 
     <!-- Sidebar -->

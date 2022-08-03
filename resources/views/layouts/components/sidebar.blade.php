@@ -78,7 +78,7 @@
     .sidebar{
       background-size: cover;
       
-      background-image:url({{asset('assets/dist/img/plane-3840x2160-minimalism-colors-4k-18613.jpg')}});
+      background-image:url({{asset('pokok/images/banner/banner.jpg')}});
 }
     .user-panel{
       border-radius: 90px; 
