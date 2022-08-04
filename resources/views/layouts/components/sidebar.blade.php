@@ -163,13 +163,25 @@
             </a>
           </li>
           <li class="nav-item" >
-            <a href="{{url('/admin/rekap')}}" class="nav-link text-light">
+            <a href="{{url('/admin/rekapabsensi')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-columns"></i>
               <p>Rekap Absensi</p>
             </a>
           <li>
         </ul>
-        @endrole 
+        @endrole
+
+        @role('member')
+        <ul class="nav nav-treeview " >
+          <li class="nav-item">
+            <a href="{{url('/member/profil')}}" class="nav-link text-light">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Profil</p>
+            </a>
+          </li>
+        </ul>
+        @endrole
+
         <li class="nav-item">
           <a class="nav-link text-light"  href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();" role="button">
@@ -182,7 +194,6 @@
               @csrf
           </form>
         </li>
-
         {{-- @role('member')
         <ul class="nav nav-treeview " >
           <li class="nav-item">

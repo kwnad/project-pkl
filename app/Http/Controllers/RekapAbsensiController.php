@@ -65,7 +65,8 @@ class RekapAbsensiController extends Controller
      */
     public function show($id)
     {
-        $rekapAbsensi = RekapAbsensi::findOrFail($id);
+        $rekapAbsensi = RekapAbsensi::all();
+        // $rekapAbsensi = RekapAbsensi::findOrFail($id);
         return view('rekapabsensi.show', compact('rekapAbsensi'));
     }
 
@@ -79,7 +80,7 @@ class RekapAbsensiController extends Controller
     {
         $rekapAbsensi = RekapAbsensi::findOrFail($id);
         $siswa = Siswa::all();
-        return view('absensi.edit', compact('rekapAbsensi', 'siswa'));
+        return view('rekapabsensi.edit', compact('rekapAbsensi', 'siswa'));
     }
 
     /**
