@@ -174,6 +174,18 @@
         @role('member')
         <ul class="nav nav-treeview " >
           <li class="nav-item">
+            <a href="{{url('/member/absensiswa')}}" class="nav-link text-light">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Presensi Masuk</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('/member/absen-siswa')}}" class="nav-link text-light">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Presensi Keluar</p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a href="{{url('/member/profil')}}" class="nav-link text-light">
               <i class="nav-icon fas fa-copy"></i>
               <p>Profil</p>
@@ -184,7 +196,7 @@
               <i class="nav-icon fas fa-copy"></i>
               <p>Rekap Absensi</p>
             </a>
-          </li>
+          </li> --}}
         </ul>
         @endrole
 

@@ -20,7 +20,12 @@ class AbsenSiswaController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('absensiswa.masuk');
+    }
+
+    public function indexkeluar()
+    {
+        return view('absensiswa.keluar');
     }
 
     // public function absen(Request $request)
@@ -72,7 +77,8 @@ class AbsenSiswaController extends Controller
         ])->first();
 
         if ($absensiswa) {
-            return "Sudah Ada";
+            return redirect()->route('absensiswa')
+            ->with('error', 'Data presensi sudah ada!');
         } else {
             AbsenSiswa::create([
                 'user_id' => auth()->user()->id,
@@ -80,7 +86,34 @@ class AbsenSiswaController extends Controller
                 'time_in' => $localtime
             ]);
         }
-        return redirect('absensiswa');  
+        return redirect()->route('absensiswa')
+            ->with('success', 'Anda berhasil presensi masuk!');
+    }
+
+    public function absenkeluar(Request $request)
+    {
+        $timezone = "Asia/Jakarta";
+        $datetime = new DateTime('now', new DateTimeZone($timezone));
+        $date = $datetime->format("Y-m-d");
+        $localtime = $datetime->format("H:i:s");
+
+        $absensiswa = AbsenSiswa::where ([
+            ['user_id', '=', auth()->user()->id],
+            ['date', '=', $date],
+        ])->first();
+
+        $dt = [
+            'time_out' => $localtime
+        ];
+
+        if ($absensiswa->time_out == "") {
+            $absensiswa->update($dt);
+            return redirect()->route('absen-siswa')
+            ->with('success', 'Anda berhasil presensi masuk!');
+        } else {
+            return redirect()->route('absen-siswa')
+            ->with('error', 'Data presensi sudah ada!');
+        }  
     }
 
     /**

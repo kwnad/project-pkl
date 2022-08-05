@@ -80,7 +80,8 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
 
     Route::get('absensiswa', [AbsenSiswaController::class, 'index'])->name('absensiswa');
     Route::post('absenmasuk', [AbsenSiswaController::class, 'store'])->name('absenmasuk');
-
+    Route::get('absen-siswa', [AbsenSiswaController::class, 'indexkeluar'])->name('absen-siswa');
+    Route::post('absenkeluar', [AbsenSiswaController::class, 'absenkeluar'])->name('absenkeluar');
     // Route::post('/absensiswa', function () {
     //     ('AbsenSiswaController@absen');
     // });

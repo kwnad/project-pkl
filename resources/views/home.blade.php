@@ -45,15 +45,15 @@
     </div>
   </div>
 
-  <div class="col-md-7">
+  {{-- <div class="col-md-7">
     @include('layouts/_flash')
     <div class="card elevation-5 shadow p-2 " style="background-color:rgb(221, 221, 221)) ;">
         
         <div class="card-header pb-3 " style="background-color: rgb(143, 188, 240)">
             Absensi 
-        </div>
+        </div> --}}
         
-        <div class="card-body bg-light " >
+        {{-- <div class="card-body bg-light " >
             <div class="table-responsive">
               <table class="table align-middle" id="dataTable">
                   <form action="{{route('absenmasuk')}}" method="post">
@@ -69,7 +69,7 @@
                     </form>
                   </table>
             </div>
-        </div>
+        </div> --}}
     </div>
   </div>
 </div>
