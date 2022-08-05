@@ -7,6 +7,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\RekapAbsensiController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AbsenSiswaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,6 +77,15 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
     Route::get('rekap', function () {
         return view('rekapuser.index');
     });
+
+    Route::get('absensiswa', [AbsenSiswaController::class, 'index'])->name('absensiswa');
+    Route::post('absenmasuk', [AbsenSiswaController::class, 'store'])->name('absenmasuk');
+
+    // Route::post('/absensiswa', function () {
+    //     ('AbsenSiswaController@absen');
+    // });
+
+    // Route::post('/absensiswa', 'AbsenSiswaController@absen');
 });
 
 Route::get('/testt', function () {
