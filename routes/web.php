@@ -72,6 +72,10 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
     Route::get('profil', function () {
         return view('profil.index');
     });
+
+    Route::get('rekap', function () {
+        return view('rekapuser.index');
+    });
 });
 
 Route::get('/testt', function () {

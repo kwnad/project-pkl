@@ -179,6 +179,12 @@
               <p>Profil</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('/member/rekap')}}" class="nav-link text-light">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Rekap Absensi</p>
+            </a>
+          </li>
         </ul>
         @endrole
 
