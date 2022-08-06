@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Jurusan;
+use App\Models\User;
 use Illuminate\Http\Request;
+// use Illuminate\Routing\Controller;
 
 class SiswaController extends Controller
 {
@@ -50,14 +52,25 @@ class SiswaController extends Controller
             'nama' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             
         ]);
+        
+        // $user = new User();
+        // $user->name = $request->nama;
+        // $user->email = $request->email;
+        // $user->password = bcrypt($request->password);
+        // $user->id_role = 2;
+        // $user->save();
 
         $siswa = new Siswa();
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
         $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
+        $siswa->email = $request->email;
+        $siswa->password = $request->password;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');
