@@ -65,7 +65,6 @@ class SiswaController extends Controller
         $userSiswa->email = $request->email;
         $userSiswa->password = bcrypt($request->password);
         
-        // $userSiswa = User::find($userSiswa->name);
         $memberRole = Role::where('name', 'member')->first();
         $userSiswa->attachRole($memberRole);
         return $userSiswa;

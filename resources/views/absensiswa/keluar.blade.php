@@ -27,7 +27,7 @@
                       @csrf
                       <tr>
                         <td>
-                          <button type="submit">Absen Keluar</button>
+                          <button type="submit" class="btn btn-primary">Absen Keluar</button>
                         </td>
                       </tr>
                     </form>
