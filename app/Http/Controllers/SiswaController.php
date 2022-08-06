@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use App\Models\Jurusan;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 // use Illuminate\Routing\Controller;
 
@@ -25,7 +26,7 @@ class SiswaController extends Controller
         $siswa = Siswa::with('jurusan')->get();
         // dd($siswa);
         // return $siswa;
-        return view('siswa.index', ['siswa' => $siswa]);
+        return view('siswa.index', compact('siswa'));
     }
 
     /**
@@ -36,7 +37,8 @@ class SiswaController extends Controller
     public function create()
     {
         $jurusan = Jurusan::all();
-        return view('siswa.create', compact('jurusan'));
+        $user = User::all();
+        return view('siswa.create', compact('jurusan', 'user'));
     }
 
     /**
@@ -47,30 +49,35 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
             'nis' => 'required|unique:siswas',
-            'nama' => 'required',
+            'name' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password' => 'required',
             
         ]);
+
+        $userSiswa = new User();
+        $userSiswa->name = $request->name;
+        $userSiswa->email = $request->email;
+        $userSiswa->password = bcrypt($request->password);
         
-        // $user = new User();
-        // $user->name = $request->nama;
-        // $user->email = $request->email;
-        // $user->password = bcrypt($request->password);
-        // $user->id_role = 2;
-        // $user->save();
+        // $userSiswa = User::find($userSiswa->name);
+        $memberRole = Role::where('name', 'member')->first();
+        $userSiswa->attachRole($memberRole);
+        return $userSiswa;
+
+        $userSiswa->save();
+
 
         $siswa = new Siswa();
         $siswa->nis = $request->nis;
-        $siswa->nama = $request->nama;
         $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
-        $siswa->email = $request->email;
-        $siswa->password = $request->password;
+        $siswa->user_id = $userSiswa->id;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -98,7 +105,8 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::findOrFail($id);
         $jurusan = Jurusan::all();
-        return view('siswa.edit', compact('siswa', 'jurusan'));
+        $user = User::all();
+        return view('siswa.edit', compact('siswa', 'jurusan', 'user'));
     }
 
     /**
@@ -112,16 +120,27 @@ class SiswaController extends Controller
     {
         $validated = $request->validate([
             'nis' => 'required|unique:kelas',
-            'nama' => 'required',
+            'name' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
+
+        $userSiswa = new User();
+        $userSiswa->name = $request->name;
+        $userSiswa->email = $request->email;
+        $userSiswa->password = bcrypt($request->password);
+        $userSiswa->save();
 
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;
-        $siswa->nama = $request->nama;
+        $siswa->user_id = $request->user_id;
         $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
+        // $siswa->email = $request->email;
+        // $siswa->password = bcrypt($request->password);
+        $siswa->user_id = $userSiswa->id;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');

@@ -16,16 +16,17 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nis')->unique();
-            $table->string('nama');
             $table->string('kelas');
             
             $table->unsignedBigInteger('id_jurusan');
-            // membuat fk id_jurusan yang mengacu kpd field id di table
-            // kelas
             $table->foreign('id_jurusan')->references('id')->on('jurusans')
                 ->onDelete('cascade');
             
-            $table->bigInteger('user_id')->unsigned();
+             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
+
+            
             $table->timestamps();
         });
     }

@@ -35,12 +35,12 @@ class UsersSeeder extends Seeder
         $adminUser->save();
         $adminUser->attachRole($adminRole);
 
-        // $memberUser = new User();
-        // $memberUser->name = 'Member Project';
-        // $memberUser->email = 'member@gmail.com'; // optional
-        // $memberUser->password = bcrypt('rahasia');
-        // $memberUser->save();
-        // $memberUser->attachRole($memberRole);
+        $memberUser = new User();
+        $memberUser->name = 'Member Project';
+        $memberUser->email = 'member@gmail.com'; // optional
+        $memberUser->password = bcrypt('rahasia');
+        $memberUser->save();
+        $memberUser->attachRole($memberRole);
 
     }
 }

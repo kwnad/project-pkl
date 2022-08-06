@@ -41,7 +41,7 @@
                                 <th>Kelas</th>
                                 <th>Jurusan</th>
                                 <th>Email</th>
-                                <th>Password</th>
+                                {{-- <th>Password</th> --}}
                                 <th>Aksi</th>
                             </thead>
                             <tbody>
@@ -50,11 +50,11 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->nis }}</td>
-                                        <td>{{ $data->nama }}</td>
+                                        <td>{{ $data->user->name }}</td>
                                         <td>{{ $data->kelas }}</td>
                                         <td>{{ $data->jurusan->jurusan }}</td>
-                                        <td>{{ $data->email }}</td>
-                                        <td>{{ $data->password }}</td>
+                                        <td>{{ $data->user->email }}</td>
+                                        {{-- <td>{{ $data->password }}</td> --}}
                                         <td>
                                             <form action="{{ route('siswa.destroy', $data->id) }}" method="post">
                                                 @csrf
