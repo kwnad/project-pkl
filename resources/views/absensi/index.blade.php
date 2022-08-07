@@ -40,7 +40,9 @@
                                 <th>Nama</th>
                                 <th>Kelas</th>
                                 <th>Jurusan</th>
-                                <th>Tanggal Masuk</th>
+                                <th>Tanggal</th>
+                                <th>Jam Masuk</th>
+                                <th>Jam Keluar</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </thead>
@@ -49,11 +51,13 @@
                                 @foreach ($absensi as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->siswa->nis }}</td>
-                                        <td>{{ $data->siswa->nama }}</td>
+                                        <td>{{ $data->nis }}</td>
+                                        <td>{{ $data->nama }}</td>
                                         <td>{{ $data->kelas }}</td>
-                                        <td>{{ $data->jurusan->jurusan }}</td>
-                                        <td>{{ $data->jam_masuk }}</td>
+                                        <td>{{ $data->jurusan }}</td>
+                                        <td>{{ $data->date }}</td>
+                                        <td>{{ $data->time_in }}</td>
+                                        <td>{{ $data->time_out }}</td>
                                         <td>{{ $data->status }}</td>
                                         
                                         <td>

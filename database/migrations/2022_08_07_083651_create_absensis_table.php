@@ -24,7 +24,10 @@ return new class extends Migration
             $table->foreign('id_jurusan')->references('id')->on('jurusans')
             ->onDelete('cascade');
 
-            $table->date('jam_masuk');
+            $table->unsignedBigInteger('id_absensiswa');
+            $table->foreign('id_absensiswa')->references('id')->on('absen_siswas')
+            ->onDelete('cascade');
+            
             $table->enum('status', ['Hadir', 'Sakit', 'Izin', 'Alpha', 'Terlambat']);
             $table->string('kelas');
             $table->timestamps();

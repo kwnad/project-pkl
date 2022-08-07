@@ -87,7 +87,7 @@ class AbsenSiswaController extends Controller
             ]);
         }
         return redirect()->route('absensiswa')
-            ->with('success', 'Anda berhasil presensi masuk!');
+            ->with('success', 'Anda berhasil presensi keluar!');
     }
 
     public function absenkeluar(Request $request)

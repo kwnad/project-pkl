@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Absensi;
 use App\Models\Jurusan;
 use App\Models\Siswa;
+use App\Models\AbsenSiswa;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -20,10 +21,14 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $absensi = Absensi::with('siswa')->get();
-        $siswa = Siswa::with('jurusan')->get();
+        $absensi = AbsenSiswa::all();
+        $siswa = Siswa::all();
+        $jurusan = Jurusan::all();
+        // $absensi = Absensi::with('siswa')->get();
+        // $siswa = Absensi::with('absensiswa')->get();
+        // $siswa = Siswa::with('jurusan')->get();
         
-        return view('absensi.index', ['absensi' => $absensi, 'siswa' => $siswa]);
+        return view('absensi.index', compact('absensi', 'siswa', 'jurusan'));
     }
 
     /**
@@ -46,21 +51,20 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
-            'id_siswa' => 'required',
             'id_siswa' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
-            'jam_masuk' => 'required',
+            'id_absensiswa' => 'required',
             'status' => 'required'
         ]);
 
         $absensi = new Absensi();
         $absensi->id_siswa = $request->id_siswa;
-        $absensi->id_siswa = $request->id_siswa;
         $absensi->kelas = $request->kelas;
         $absensi->id_jurusan = $request->id_jurusan;
-        $absensi->jam_masuk = $request->jam_masuk;
+        $absensi->id_absensiswa = $request->id_absensiswa;
         $absensi->status = $request->status;
         $absensi->save();
         return redirect()->route('absensi.index')

@@ -20,4 +20,9 @@ class Absensi extends Model
     {
         return $this->belongsTo(Jurusan::class, 'id_jurusan');
     }
+
+    public function absensiswa()
+    {
+        return $this->belongsTo(AbsenSiswa::class, 'id_absensiswa');
+    }
 }
