@@ -60,16 +60,23 @@ class SiswaController extends Controller
             
         ]);
 
+        $memberRole = Role::create([
+            'name' => 'member',
+            // 'display_name' => 'Project Member', // optional
+
+        ]);
+
         $userSiswa = new User();
         $userSiswa->name = $request->name;
         $userSiswa->email = $request->email;
         $userSiswa->password = bcrypt($request->password);
         
-        $memberRole = Role::where('name', 'member')->first();
-        $userSiswa->attachRole($memberRole);
-        return $userSiswa;
+        // $memberRole = Role::where('name', 'member')->first();
+        // $userSiswa->attachRole($memberRole);
+        // return $userSiswa;
 
         $userSiswa->save();
+        $userSiswa->attachRole($memberRole);
 
 
         $siswa = new Siswa();
