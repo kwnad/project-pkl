@@ -10,7 +10,7 @@
     <title>Document</title>
     <style>
 
-        .col-md-10{
+        .col-md-12{
     
             font-family:Georgia, 'Times New Roman', Times, serif;
         }
@@ -27,7 +27,7 @@
         </a>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card elevation-5 shadow p-2" style="background-color:rgb(221, 221, 221)) ;">
                 <div class="card-header pb-3" style="background-color: rgb(143, 188, 240)">Data Absensi
                 </div>
@@ -44,23 +44,49 @@
                                 <th>Jam Masuk</th>
                                 <th>Jam Keluar</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
                                 @foreach ($absensi as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->nis }}</td>
-                                        <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->kelas }}</td>
-                                        <td>{{ $data->jurusan }}</td>
+                                        <td>{{ $data->user->siswa->nis }}</td>
+                                        <td>{{ $data->user->name }}</td>
+                                        <td>{{ $data->user->siswa->kelas }}</td>
+                                        <td>{{ $data->user->siswa->jurusan->jurusan }}</td>
                                         <td>{{ $data->date }}</td>
                                         <td>{{ $data->time_in }}</td>
                                         <td>{{ $data->time_out }}</td>
-                                        <td>{{ $data->status }}</td>
-                                        
+
                                         <td>
+                                            <form action="{{ route('absensi.store') }}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
+                                                        name="status" value="Hadir">H
+                                                    <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
+                                                        name="status" value="Izin">I
+                                                    <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
+                                                        name="status" value="Sakit">S
+                                                    <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
+                                                        name="status" value="Alpha">A
+                                                    <input type="radio" class="mr-2"  @error('status') is-invalid @enderror"
+                                                        name="status" value="Terlambat">T
+                                                    @error('status')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="d-grid gap-2">
+                                                        <button class="btn btn-info" type="submit">Simpan</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        
+                                        {{-- <td>
                                             <form action="{{ route('absensi.destroy', $data->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
@@ -86,7 +112,7 @@
                                                       </svg>
                                                 </button>
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

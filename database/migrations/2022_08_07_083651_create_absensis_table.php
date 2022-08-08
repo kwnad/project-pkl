@@ -16,20 +16,20 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             
-            $table->unsignedBigInteger('id_siswa');
-            $table->foreign('id_siswa')->references('id')->on('siswas')
-            ->onDelete('cascade');
+            // $table->unsignedBigInteger('id_siswa');
+            // $table->foreign('id_siswa')->references('id')->on('siswas')
+            // ->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_jurusan');
-            $table->foreign('id_jurusan')->references('id')->on('jurusans')
-            ->onDelete('cascade');
+            // $table->unsignedBigInteger('id_jurusan');
+            // $table->foreign('id_jurusan')->references('id')->on('jurusans')
+            // ->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_absensiswa');
-            $table->foreign('id_absensiswa')->references('id')->on('absen_siswas')
-            ->onDelete('cascade');
+            // $table->unsignedBigInteger('id_absensiswa');
+            // $table->foreign('id_absensiswa')->references('id')->on('absen_siswas')
+            // ->onDelete('cascade');
             
             $table->enum('status', ['Hadir', 'Sakit', 'Izin', 'Alpha', 'Terlambat']);
-            $table->string('kelas');
+            // $table->string('kelas');
             $table->timestamps();
         });
     }

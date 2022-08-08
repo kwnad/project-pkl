@@ -6,6 +6,7 @@ use App\Models\Absensi;
 use App\Models\Jurusan;
 use App\Models\Siswa;
 use App\Models\AbsenSiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -24,11 +25,12 @@ class AbsensiController extends Controller
         $absensi = AbsenSiswa::all();
         $siswa = Siswa::all();
         $jurusan = Jurusan::all();
+        $user = User::all();
         // $absensi = Absensi::with('siswa')->get();
         // $siswa = Absensi::with('absensiswa')->get();
         // $siswa = Siswa::with('jurusan')->get();
         
-        return view('absensi.index', compact('absensi', 'siswa', 'jurusan'));
+        return view('absensi.index', compact('absensi', 'siswa', 'jurusan', 'user'));
     }
 
     /**
@@ -53,22 +55,28 @@ class AbsensiController extends Controller
     {
         // dd($request->all());
         $validated = $request->validate([
-            'id_siswa' => 'required',
-            'kelas' => 'required',
-            'id_jurusan' => 'required',
-            'id_absensiswa' => 'required',
+            // 'id_siswa' => 'required',
+            // 'user_id' => 'required',
+            // 'kelas' => 'required',
+            // 'id_jurusan' => 'required',
+            // 'id_absensiswa' => 'required',
             'status' => 'required'
         ]);
 
+        // $absensi = Absensi::where (
+        //     'user_id', '=', auth()->user()->id
+        // )->first();
+
         $absensi = new Absensi();
-        $absensi->id_siswa = $request->id_siswa;
-        $absensi->kelas = $request->kelas;
-        $absensi->id_jurusan = $request->id_jurusan;
-        $absensi->id_absensiswa = $request->id_absensiswa;
+        // $absensi->id_siswa = $request->id_siswa;
+        // $absensi->user_id = $request->user_id;
+        // $absensi->kelas = $request->kelas;
+        // $absensi->id_jurusan = $request->id_jurusan;
+        // $absensi->id_absensiswa = $request->id_absensiswa;
         $absensi->status = $request->status;
         $absensi->save();
         return redirect()->route('absensi.index')
-            ->with('success', 'Data berhasil dibuat!');
+            ->with('success', 'Data berhasil dikirim!');
     }
 
     /**

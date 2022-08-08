@@ -87,7 +87,7 @@ class AbsenSiswaController extends Controller
             ]);
         }
         return redirect()->route('absensiswa')
-            ->with('success', 'Anda berhasil presensi keluar!');
+            ->with('success', 'Anda berhasil presensi masuk!');
     }
 
     public function absenkeluar(Request $request)
@@ -109,7 +109,7 @@ class AbsenSiswaController extends Controller
         if ($absensiswa->time_out == "") {
             $absensiswa->update($dt);
             return redirect()->route('absen-siswa')
-            ->with('success', 'Anda berhasil presensi masuk!');
+            ->with('success', 'Anda berhasil presensi keluar!');
         } else {
             return redirect()->route('absen-siswa')
             ->with('error', 'Data presensi sudah ada!');
