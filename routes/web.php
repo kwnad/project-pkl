@@ -70,13 +70,13 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
         return view('home');
     });
 
-    Route::get('profil', function () {
-        return view('profil.index');
-    });
+    // Route::get('profil', function () {
+    //     return view('profil.index');
+    // });
 
-    Route::get('rekap', function () {
-        return view('rekapuser.index');
-    });
+    // Route::get('rekap', function () {
+    //     return view('rekapuser.index');
+    // });
 
     Route::get('absensiswa', [AbsenSiswaController::class, 'index'])->name('absensiswa');
     Route::post('absenmasuk', [AbsenSiswaController::class, 'store'])->name('absenmasuk');
