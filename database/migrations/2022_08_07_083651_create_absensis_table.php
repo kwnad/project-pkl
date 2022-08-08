@@ -28,6 +28,10 @@ return new class extends Migration
             // $table->foreign('id_absensiswa')->references('id')->on('absen_siswas')
             // ->onDelete('cascade');
             
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
+            
             $table->enum('status', ['Hadir', 'Sakit', 'Izin', 'Alpha', 'Terlambat']);
             // $table->string('kelas');
             $table->timestamps();

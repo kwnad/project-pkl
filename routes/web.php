@@ -58,11 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
     Route::resource('rekapabsensi', RekapAbsensiController::class);
 
-    // Route::resource('detail', AdminController::class);
-
-    // Route::get('rekap', function () {
-    //     return view('rekapabsensi.index');
-    // });
+    // Route::get('absensi', [AbsensiController::class, 'index'])->name('absensi');
+    // Route::post('absensi-siswa', [AbsensiController::class, 'store'])->name('absensi-siswa');
 });
 
 Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], function () {
@@ -70,23 +67,11 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth', 'role:member']], fu
         return view('home');
     });
 
-    // Route::get('profil', function () {
-    //     return view('profil.index');
-    // });
-
-    // Route::get('rekap', function () {
-    //     return view('rekapuser.index');
-    // });
-
     Route::get('absensiswa', [AbsenSiswaController::class, 'index'])->name('absensiswa');
     Route::post('absenmasuk', [AbsenSiswaController::class, 'store'])->name('absenmasuk');
+
     Route::get('absen-siswa', [AbsenSiswaController::class, 'indexkeluar'])->name('absen-siswa');
     Route::post('absenkeluar', [AbsenSiswaController::class, 'absenkeluar'])->name('absenkeluar');
-    // Route::post('/absensiswa', function () {
-    //     ('AbsenSiswaController@absen');
-    // });
-
-    // Route::post('/absensiswa', 'AbsenSiswaController@absen');
 });
 
 Route::get('/testt', function () {

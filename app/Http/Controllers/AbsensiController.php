@@ -56,27 +56,60 @@ class AbsensiController extends Controller
         // dd($request->all());
         $validated = $request->validate([
             // 'id_siswa' => 'required',
-            // 'user_id' => 'required',
+            'user_id' => 'required',
             // 'kelas' => 'required',
             // 'id_jurusan' => 'required',
             // 'id_absensiswa' => 'required',
             'status' => 'required'
         ]);
 
-        // $absensi = Absensi::where (
-        //     'user_id', '=', auth()->user()->id
-        // )->first();
-
         $absensi = new Absensi();
         // $absensi->id_siswa = $request->id_siswa;
         // $absensi->user_id = $request->user_id;
+        $absensi->user_id = $request->user_id;
         // $absensi->kelas = $request->kelas;
         // $absensi->id_jurusan = $request->id_jurusan;
         // $absensi->id_absensiswa = $request->id_absensiswa;
         $absensi->status = $request->status;
         $absensi->save();
-        return redirect()->route('absensi.index')
+
+        // $absensis = Absensi::where ([
+        //     ['user_id', '=', $absensi->user_id],
+        //     ['status', '=', $absensi->status]
+        // ])->first();
+
+        // if ($absensis) {
+        //     return redirect()->route('absensi')
+        //     ->with('error', 'Data status sudah ada!');
+        // } else {
+        //     AbsenSiswa::create([
+        //         'user_id' => $absensi->user_id,
+        //         'status' => $absensi->status,
+        //     ]);
+        // }
+
+        if($request->user_id)
+        {
+            foreach ($request->user_id as $score) 
+            {
+                if( ! empty($score))
+                {
+                    $data = [
+                        
+                        'user_id' => $score,
+                        'status'=>$request->status,
+                    ];
+                    Absensi::create($data);
+                }
+                $a++;
+            }
+
+            return redirect()->route('absensi.index')
             ->with('success', 'Data berhasil dikirim!');
+        }
+
+        // return redirect()->route('absensi.index')
+        //     ->with('success', 'Data berhasil dikirim!');
     }
 
     /**
