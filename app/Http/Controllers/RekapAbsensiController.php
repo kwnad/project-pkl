@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\RekapAbsensi;
 use App\Models\Siswa;
 use App\Models\Jurusan;
+use App\Models\User;
+use App\Models\Absensi;
 use Illuminate\Http\Request;
 
 class RekapAbsensiController extends Controller
@@ -26,11 +28,15 @@ class RekapAbsensiController extends Controller
         //         ->orWhere('siswa.jurusan', 'like', '%' . $data['q'] . '%');
         $siswa = Siswa::all();
         $jurusan = Jurusan::all();
+        $user = User::all();
+        $absensi = Absensi::all();
         $rekapAbsensi = RekapAbsensi::all();
+        // $rekap = Siswa::select()
+        dd($rekapAbsensi);
         // $rekapAbsensi = Siswa::with('siswa')->get();
         // $datasiswa = Siswa::with('siswa')->get();
         // dd($rekapAbsensi);
-        return view('rekapabsensi.index', compact('rekapAbsensi', 'jurusan', 'siswa'));
+        return view('rekapabsensi.index', compact('rekapAbsensi', 'jurusan', 'siswa', 'user'));
     }
 
     /**
@@ -53,14 +59,47 @@ class RekapAbsensiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_siswa' => 'required',
+            
+            'status' => 'required'
         ]);
+        
+        $absensi = Absensi::where ([
+            ['user_id', '=', 'user_id'],
+            ['status', '=', 'status'],
+        ])->first();
 
-        $rekapAbsensi = new RekapAbsensi();
-        $rekapAbsensi->id_siswa = $request->id_siswa;
-        $rekapAbsensi->save();
-        return redirect()->route('rekapbsensi.index')
-            ->with('success', 'Data berhasil dibuat!');
+        if ($absensi) {
+            return redirect()->route('absensi')
+            ->with('error', 'Data sudah ada!');
+        }
+        // $absensi->user_id = $request->user_id;
+        // $absensi->status = $request->status;
+        // $absensi->save();
+        return redirect()->route('absensi.index')
+            ->with('success', 'Data berhasil dikirim!');
+
+        // $hadir = User::where('status', 'Hadir');
+        // $hadir = $hadir->count();
+        
+        // $sakit = User::where('status', 'Sakit');
+        // $sakit = $sakit->count();
+
+        // $izin = User::where('status', 'Izin');
+        // $izin = $izin->count();
+
+        // $alpha = User::where('status', 'Alpha');
+        // $alpha = $alpha->count();
+
+        // $terlambat = User::where('status', 'Terlambat');
+        // $terlambat = $terlambat->count();
+
+        // return view('rekapabsensi.index', compact('hadir', 'sakit', 'izin', 'alpha', 'terlambat'));
+
+        // $rekapAbsensi = new RekapAbsensi();
+        // $rekapAbsensi->id_siswa = $request->id_siswa;
+        // $rekapAbsensi->save();
+        // return redirect()->route('rekapbsensi.index')
+        //     ->with('success', 'Data berhasil dibuat!');
     }
 
     /**

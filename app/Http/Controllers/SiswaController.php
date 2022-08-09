@@ -128,11 +128,18 @@ class SiswaController extends Controller
             'password' => 'required',
         ]);
 
-        $userSiswa = Siswa::findOrFail($id);
+        $memberRole = Role::create([
+            'name' => 'member',
+            // 'display_name' => 'Project Member', // optional
+
+        ]);
+        
+        $userSiswa = User::findOrFail($id);
         $userSiswa->name = $request->name;
         $userSiswa->email = $request->email;
         $userSiswa->password = bcrypt($request->password);
         $userSiswa->save();
+        $userSiswa->attachRole($memberRole);
 
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;

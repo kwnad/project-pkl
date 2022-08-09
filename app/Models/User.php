@@ -58,4 +58,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Absensi::class);
     }
+
+    public function rekapabsensi()
+    {
+        return $this->hasMany(RekapAbsensi::class, 'id_rekapabsensi');
+    }
 }

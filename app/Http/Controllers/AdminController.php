@@ -8,6 +8,8 @@ class AdminController extends Controller
 {
     public function total()
     {
+        
+
         $hadir = User::where('status', 'Hadir');
         $hadir = $hadir->count();
         
@@ -23,8 +25,7 @@ class AdminController extends Controller
         $terlambat = User::where('status', 'Terlambat');
         $terlambat = $terlambat->count();
 
-        $total_hadir = DB::table('rekap_absensi')
-                ->sum('status');
+        
                 
         return view('rekapabsensi.index', compact('hadir', 'sakit', 'izin', 'alpha', 'terlambat'));
     }

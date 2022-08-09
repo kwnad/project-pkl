@@ -61,7 +61,7 @@
                             </div>
                             </form>
                             <br>
-                            <thead>
+                            {{-- <thead>
                                 <th>No</th>
                                 <th>NIS</th>
                                 <th>Nama Siswa</th>
@@ -85,7 +85,7 @@
                                         <td>{{ $data->terlambat }}</td>
                                     </tr>
                                 @endforeach
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>
                     <?php

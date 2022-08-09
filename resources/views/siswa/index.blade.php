@@ -42,7 +42,7 @@
                                 <th>Jurusan</th>
                                 <th>Email</th>
                                 {{-- <th>Password</th> --}}
-                                <th>Aksi</th>
+                                {{-- <th>Aksi</th> --}}
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
@@ -55,7 +55,7 @@
                                         <td>{{ $data->jurusan->jurusan }}</td>
                                         <td>{{ $data->user->email }}</td>
                                         {{-- <td>{{ $data->password }}</td> --}}
-                                        <td>
+                                        {{-- <td>
                                             <form action="{{ route('siswa.destroy', $data->id) }}" method="post">
                                                 @csrf
                                                 
@@ -69,7 +69,7 @@
                                                
                                                 
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

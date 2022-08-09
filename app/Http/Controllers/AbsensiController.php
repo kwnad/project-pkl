@@ -71,7 +71,7 @@ class AbsensiController extends Controller
         // $absensi->id_absensiswa = $request->id_absensiswa;
         $absensi->status = $request->status;
         $absensi->save();
-        return redirect()->route('absensi.index')
+        return redirect()->route('rekapabsensi.index')
             ->with('success', 'Data berhasil dikirim!');
 
         // $absensis = Absensi::where ([
