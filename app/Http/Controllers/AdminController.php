@@ -22,6 +22,10 @@ class AdminController extends Controller
 
         $terlambat = User::where('status', 'Terlambat');
         $terlambat = $terlambat->count();
-        return view('rekapabsensi.show', compact('hadir', 'sakit', 'izin', 'alpha', 'terlambat'));
+
+        $total_hadir = DB::table('rekap_absensi')
+                ->sum('status');
+                
+        return view('rekapabsensi.index', compact('hadir', 'sakit', 'izin', 'alpha', 'terlambat'));
     }
 }

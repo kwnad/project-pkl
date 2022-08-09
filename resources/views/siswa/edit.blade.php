@@ -25,9 +25,9 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
-                                <input type="text" class="form-control  @error('nama') is-invalid @enderror"
-                                    name="nama" value="{{ $siswa->nama }}">
-                                @error('nama')
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror"
+                                    name="name" value="{{ $siswa->user->name }}">
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,6 +59,26 @@
                                     @endforeach
                                 </select>
                                 @error('id_jurusan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control  @error('email') is-invalid @enderror"
+                                    name="email" value="{{ $siswa->user->email }}">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control  @error('password') is-invalid @enderror"
+                                    name="password" value="">
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

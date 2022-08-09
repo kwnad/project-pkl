@@ -18,13 +18,19 @@ class RekapAbsensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rekapAbsensi = Siswa::all();
+        // $data['q'] = $request->query['q'];
+        // $query = Siswa::select()
+        //         ->where('siswa.kelas', 'like', '%' . $data['q'] . '%')
+        //         ->orWhere('siswa.jurusan', 'like', '%' . $data['q'] . '%');
+        $siswa = Siswa::all();
+        $jurusan = Jurusan::all();
+        $rekapAbsensi = RekapAbsensi::all();
         // $rekapAbsensi = Siswa::with('siswa')->get();
         // $datasiswa = Siswa::with('siswa')->get();
         // dd($rekapAbsensi);
-        return view('rekapabsensi.index', compact('rekapAbsensi'));
+        return view('rekapabsensi.index', compact('rekapAbsensi', 'jurusan', 'siswa'));
     }
 
     /**

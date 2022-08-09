@@ -120,7 +120,7 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nis' => 'required|unique:kelas',
+            'nis' => 'required',
             'name' => 'required',
             'kelas' => 'required',
             'id_jurusan' => 'required',
@@ -128,7 +128,7 @@ class SiswaController extends Controller
             'password' => 'required',
         ]);
 
-        $userSiswa = new User();
+        $userSiswa = Siswa::findOrFail($id);
         $userSiswa->name = $request->name;
         $userSiswa->email = $request->email;
         $userSiswa->password = bcrypt($request->password);
@@ -136,11 +136,8 @@ class SiswaController extends Controller
 
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;
-        $siswa->user_id = $request->user_id;
         $siswa->kelas = $request->kelas;
         $siswa->id_jurusan = $request->id_jurusan;
-        // $siswa->email = $request->email;
-        // $siswa->password = bcrypt($request->password);
         $siswa->user_id = $userSiswa->id;
         $siswa->save();
         return redirect()->route('siswa.index')
